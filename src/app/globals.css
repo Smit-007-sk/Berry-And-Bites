@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Aesthetic Warm Editorial Dessert Palette */
+    --aesthetic-cream: #FAF6F0;
+    --aesthetic-cream-light: #FDFBF8;
+    --aesthetic-card: #FFFFFF;
+    --aesthetic-rose: #C74D68;
+    --aesthetic-rose-dark: #A83850;
+    --aesthetic-rose-soft: #F9ECEF;
+    --aesthetic-rose-border: #F3D4DD;
+    --aesthetic-espresso: #241A18;
+    --aesthetic-cocoa: #4A3B36;
+    --aesthetic-taupe: #786862;
+    --aesthetic-sand: #A39690;
+    --aesthetic-border: rgba(74, 59, 54, 0.08);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--aesthetic-cream);
+    color: var(--aesthetic-espresso);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--aesthetic-cream);
+    color: var(--aesthetic-espresso);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #F6DCE2;
+    color: #8C293E;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9CECA;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BAABA6;
+}
+
+/* Hide scrollbar for category tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
