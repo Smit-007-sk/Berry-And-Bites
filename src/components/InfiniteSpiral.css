@@ -5,12 +5,14 @@
   min-height: 320px;
   overflow: hidden;
   isolation: isolate;
+  touch-action: pan-y;
 }
 
 .infinite-spiral__stage {
   position: absolute;
   inset: 0;
   transform-style: preserve-3d;
+  pointer-events: none;
 }
 
 .infinite-spiral__item {
@@ -29,6 +31,7 @@
   backface-visibility: hidden;
   will-change: transform, opacity, filter;
   text-decoration: none;
+  touch-action: none;
 }
 
 .infinite-spiral__image {

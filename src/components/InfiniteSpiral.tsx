@@ -211,7 +211,7 @@ export default function InfiniteSpiral({
     '--infinite-spiral-card-height': `${cardHeight}px`,
     '--infinite-spiral-card-radius': `${cardRadius}px`,
     cursor: animationMode === 'drag' || animationMode === 'all' ? 'grab' : 'default',
-    touchAction: animationMode === 'drag' || animationMode === 'all' ? 'pan-x' : 'auto',
+    touchAction: 'auto',
     userSelect: animationMode === 'drag' || animationMode === 'all' ? 'none' : 'auto'
   };
 
@@ -239,6 +239,16 @@ export default function InfiniteSpiral({
       }}
       onPointerDown={event => {
         if (!dragEnabled || event.button !== 0) return;
+        // Check if the pointer down occurred on or inside an item card image
+        const target = event.target as HTMLElement;
+        const isOnCard = target && (target.closest('.infinite-spiral__item') !== null);
+
+        // On mobile/touch devices, only intercept and drag if finger started ON an image card!
+        // If touching outside the images, let the page scroll naturally!
+        if (event.pointerType === 'touch' && !isOnCard) {
+          return;
+        }
+
         draggingRef.current = true;
         dragMovedRef.current = false;
         lastPointerYRef.current = event.clientY;
