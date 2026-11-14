@@ -576,7 +576,7 @@ export default function MorphSlider({
   autoplay = false,
   autoplayDelay = 3,
   loop = true,
-  radius = 16,
+  radius = 0,
   overlayColor = '#000000',
   showCaptions = true,
   showControls = true,

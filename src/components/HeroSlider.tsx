@@ -101,6 +101,7 @@ export default function HeroSlider() {
             autoplayDelay={3}
             duration={1.2}
             loop={true}
+            radius={0}
             contain={isDesktop}
             showCaptions={false}
             showControls={false}
