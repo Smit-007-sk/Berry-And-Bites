@@ -26,6 +26,7 @@ export default function HeroSlider() {
 
   return (
     <section
+      id="hero"
       className="relative w-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}

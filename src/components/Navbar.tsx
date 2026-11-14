@@ -3,38 +3,61 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { InstagramIcon } from "@/components/InstagramIcon";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  const [isVisible, setIsVisible] = useState(!isHomePage);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    // If not on home page (e.g. on product detail pages), always keep navbar visible
+    if (!isHomePage) {
+      setIsVisible(true);
+      return;
+    }
+
+    const checkHeroVisibility = () => {
+      const heroElement = document.getElementById("hero");
+      if (!heroElement) {
+        // Fallback: show if scrolled past 400px
+        setIsVisible(window.scrollY > 400);
+        return;
+      }
+
+      const rect = heroElement.getBoundingClientRect();
+      // rect.bottom is the distance from top of viewport to bottom of hero section.
+      // When rect.bottom <= 80, the user has scrolled past the hero section!
+      setIsVisible(rect.bottom <= 80);
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+    checkHeroVisibility();
+    window.addEventListener("scroll", checkHeroVisibility, { passive: true });
+    window.addEventListener("resize", checkHeroVisibility, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", checkHeroVisibility);
+      window.removeEventListener("resize", checkHeroVisibility);
+    };
+  }, [isHomePage]);
 
   const closeMenu = () => setMobileMenuOpen(false);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-3 sm:px-6 pointer-events-auto ${
-          isScrolled ? "pt-2 sm:pt-2.5" : "pt-3 sm:pt-3.5"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out px-3 sm:px-6 pt-2.5 sm:pt-3.5 ${
+          isVisible
+            ? "translate-y-0 opacity-100 pointer-events-auto"
+            : "-translate-y-full opacity-0 pointer-events-none"
         }`}
       >
         <div className="max-w-5xl mx-auto">
           <nav
-            className={`flex items-center justify-between px-3.5 sm:px-5 py-2 rounded-full transition-all duration-300 ${
-              isScrolled
-                ? "bg-[#FAF6F0]/95 backdrop-blur-md border border-[#4A3B36]/10 shadow-[0_4px_20px_rgba(36,26,24,0.06)]"
-                : "bg-[#FAF6F0]/90 backdrop-blur-sm border border-[#4A3B36]/08 shadow-sm"
-            }`}
+            className="flex items-center justify-between px-3.5 sm:px-5 py-2 rounded-full transition-all duration-300 bg-[#FAF6F0]/95 backdrop-blur-md border border-[#4A3B36]/10 shadow-[0_4px_20px_rgba(36,26,24,0.08)]"
           >
             {/* Brand Logo */}
             <Link
