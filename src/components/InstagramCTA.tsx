@@ -26,7 +26,7 @@ export default function InstagramCTA({
             Order / Enquire on Instagram
           </h3>
           <p className="text-xs sm:text-sm text-[#786862] mt-0.5">
-            DM us to check daily batches, today&apos;s stall specials, or custom event orders.
+            Connect with us on Instagram for daily batches, today&apos;s stall specials, or party orders.
           </p>
         </div>
 
@@ -64,36 +64,26 @@ export default function InstagramCTA({
 
               <p className="mt-4 text-sm sm:text-base text-white/80 leading-relaxed">
                 {customSubtitle ||
-                  "Follow our daily pop-up stall stories, watch warm Belgian chocolate pour in real-time, and DM us your cravings or party orders."}
+                  "Follow our daily pop-up stall stories, watch warm Belgian chocolate pour in real-time, and check our daily specials or party orders."}
               </p>
 
               <div className="mt-4 flex items-center justify-center md:justify-start gap-4 text-xs text-white/60">
                 <span>&bull; Fresh Daily Batches</span>
-                <span>&bull; Instant DM Enquiries</span>
+                <span>&bull; Daily Stall Stories</span>
                 <span>&bull; Stall Location Updates</span>
               </div>
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row items-center gap-3 w-full sm:w-auto">
+            <div className="flex items-center justify-center md:justify-start w-full sm:w-auto">
               <a
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#C74D68] hover:bg-[#A83850] text-white font-semibold text-sm sm:text-base shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-center"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#C74D68] hover:bg-[#A83850] text-white font-semibold text-sm sm:text-base shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 text-center"
               >
                 <InstagramIcon className="w-4 h-4 text-white" />
                 <span>Follow Us on Instagram</span>
-              </a>
-
-              <a
-                href={siteConfig.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-medium text-sm sm:text-base transition-all duration-200 text-center"
-              >
-                <MessageCircleHeart className="w-4 h-4 text-[#F5C2CD]" />
-                <span>Send a DM</span>
               </a>
             </div>
           </div>

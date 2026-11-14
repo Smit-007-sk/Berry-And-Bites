@@ -211,7 +211,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
               <p className="mt-3 text-[11px] text-[#786862] flex items-center justify-center sm:justify-start gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#C74D68]" />
-                <span>Made fresh daily at our stall. DM to check today&apos;s batch.</span>
+                <span>Made fresh daily at our stall. Visit or check today&apos;s batch on Instagram.</span>
               </p>
             </div>
           </div>
