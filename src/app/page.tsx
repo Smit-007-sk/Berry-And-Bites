@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import HeroSlider from "@/components/HeroSlider";
 import BrandQuote from "@/components/BrandQuote";
 import ProductSpiralShowcase from "@/components/ProductSpiralShowcase";
@@ -8,8 +9,16 @@ import ProductGrid from "@/components/ProductGrid";
 import AboutStory from "@/components/AboutStory";
 import InstagramCTA from "@/components/InstagramCTA";
 
-export default function HomePage() {
+function HomeContent() {
+  const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam) {
+      setSelectedCategory(categoryParam);
+    }
+  }, [searchParams]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -34,5 +43,13 @@ export default function HomePage() {
       {/* 6. Instagram Community CTA */}
       <InstagramCTA />
     </div>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <Suspense fallback={null}>
+      <HomeContent />
+    </Suspense>
   );
 }

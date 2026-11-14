@@ -93,8 +93,8 @@ export default function Footer() {
               {categories.map((cat) => (
                 <li key={cat.id}>
                   <Link
-                    href={`/#menu`}
-                    className="text-[#A39690] hover:text-white transition-colors"
+                    href={`/?category=${cat.id}#menu`}
+                    className="text-[#A39690] hover:text-white transition-colors cursor-pointer"
                   >
                     {cat.name}
                   </Link>

@@ -122,8 +122,7 @@ export default function HeroSlider() {
         */}
         <div className="absolute inset-0 flex flex-col justify-end lg:justify-center p-5 sm:p-8 md:p-12 lg:p-16 text-white max-w-7xl mx-auto w-full pb-14 sm:pb-16 lg:pb-0 z-20 pointer-events-none">
           <div className="max-w-md lg:max-w-lg pointer-events-auto">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-white mb-2.5 w-fit">
-              <Sparkles className="w-3 h-3 text-[#F5C2CD]" />
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-white mb-2.5 w-fit">
               <span>Homemade & Natural</span>
             </div>
 
