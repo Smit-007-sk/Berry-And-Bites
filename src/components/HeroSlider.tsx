@@ -128,7 +128,7 @@ export default function HeroSlider() {
             </div>
 
             <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-white mb-2 text-balance drop-shadow-md">
-              Handcrafted Indulgence, Made with Love.
+              Every Bite, A Little Happiness.
             </h1>
 
             <p className="text-xs sm:text-sm lg:text-base text-white/90 font-normal mb-5 max-w-md line-clamp-3 drop-shadow">

@@ -63,7 +63,7 @@ export default function ProductSpiralShowcase() {
     <section className="relative py-12 sm:py-16 bg-[#FAF6F0] overflow-hidden border-t border-[#4A3B36]/08">
       <div className="max-w-5xl mx-auto px-4 mb-4 text-center">
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#241A18] tracking-tight">
-          Every Bite, A Little Happiness
+          Handcrafted Treats & Botanical Sips
         </h2>
         <p className="mt-2 text-xs sm:text-sm text-[#786862] max-w-lg mx-auto">
           Drag, scroll or hover through our homemade cheesecakes, fresh strawberry chocolate cups, and botanical mojitos. Click any item to explore!
